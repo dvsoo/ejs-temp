@@ -1,0 +1,106 @@
+li,
+ol,
+ul{
+  margin-left:0;
+  list-style: none;
+}
+
+
+////main - layout
+
+.hidden{
+  @include hidden();
+}
+
+.clearfix{
+  @include clearfix();
+}
+
+.m_content{
+  @include padding-vertical(5rem);
+}
+
+.p_color{
+  color: map_get($use-color, p1-c);
+}
+
+
+.visual{
+  background-color: map_get($use-color, w1-c);
+  padding-top:100px;
+  .p_color {
+    color:  map_get($use-color, p1-c);
+  }
+}
+
+//.m_content:nth-child(2n-1){
+//  background-color: map_get($use-color, w1-c);
+//}
+//
+//.m_content:nth-child(2n){
+//  background-color: map_get($use-color, bg-c);
+//}
+
+.m_title{
+  font-weight: 300;
+  text-align: center;
+  font-size: map_get($use-font, xl-f);
+  &:after{
+    display: block;
+    content:'';
+    width:67px;
+    height: 1px;
+    background-color: map_get($use-color, mb-c);
+    margin:1.5rem auto 4rem;
+  }
+  @include respond-to(xsmall-screens){
+    font-size: map_get($use-font, lg-f);
+  }
+}
+
+.m_title{
+  .web_block{
+    @include respond-to(small-screens){
+      display: block;
+    }
+  }
+}
+
+.s_title{
+  font-weight: 300;
+}
+
+.list_title{
+  font-weight: 300;
+  @include respond-to(xsmall-screens){
+    font-size: map_get($use-font, lg-f);
+  }
+}
+
+.m_desc{
+  text-align: center;
+  @include respond-to(xsmall-screens){
+    font-size: map_get($use-font, sm-f);
+  }
+}
+
+.web_block{
+  display: block;
+  @include respond-to(small-screens){
+    display: inline;
+  }
+}
+
+.mobile_block{
+  @include respond-to(small-screens){
+    display: block;
+  }
+}
+
+
+.container{
+  @include respond-to(small-screens){
+    width:94%!important;
+    margin: auto;
+  }
+}

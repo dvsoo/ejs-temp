@@ -1,0 +1,221 @@
+/// 변수
+
+
+//// color various
+$use-color: (
+        w1-c:  #ffffff,
+        p1-c: #ab820f,
+        mt-c: #bb8f13,
+        mb-c: #d2b462,
+        st-c: #bb8f13,
+        df-c: #444444,
+        bg-c: #d4a82d,
+        bt-c: #bb8f13,
+        mt2-c: #e9e9e8,
+        tbg-c: #e4e4e4,
+        bg2-c: #ebebeb,
+);
+
+
+///// font and rem various
+$use-font: (
+        xs1-f: 0.7rem,
+        sm-f: 0.9rem,
+        md-f: 1.2rem,
+        lg-f: 1.5rem,
+        xl-f: 2.7rem
+);
+
+
+///// font weight various
+$font-weight: (
+        light-f: 300,
+        normal-f: 400,
+        bold-f: 700,
+        bolder-f: 800
+);
+
+
+
+
+
+////=======================mixin function
+//=======================================//
+
+
+//// clearfix mixin
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+
+//// hidden mixin
+@mixin hidden() {
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  left: -9999%;
+  text-indent: -9999px;
+  line-height: 0;
+}
+
+
+//// form-style mixin
+@mixin form-style() {
+  //border-radius: 18px;
+  border: 1px solid map_get($use-color, white-c);
+  height: 40px;
+  outline: none;
+  background-color: map_get($use-color, login-bg);
+  color: map_get($use-color, white-c);
+  padding-left:25px;
+  line-height: 40px;
+}
+
+
+//// sns icon mixin
+@mixin icon-style($sns) {
+  @if $sns == facebook_icon{
+    background-image:url('../images/sns/facebook.png');
+  }
+  @else if $sns == telegram_icon{
+    background-image:url('../images/sns/telegram.png');
+  }
+  @else if $sns == medium_icon{
+    background-image:url('../images/sns/medium.png');
+  }
+  @else if $sns == branch_icon{
+    background-image:url('../images/sns/brunch.png');
+  }
+  @else if $sns == linkedin_icon{
+    background-image:url('../images/sns/linkedin.png');
+  }
+  @else if $sns == twitter_icon{
+    background-image:url('../images/sns/twitter.png');
+  }
+}
+
+
+//// basic icon mixin
+@mixin basic-icon(){
+  width: 36px;
+  height: 36px;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+///// basic btn mixin
+@mixin btn-style($btn) {
+  @if $btn == basic{
+    -moz-border-image: -moz-linear-gradient(top, #9a6aff 0%, #6eff90 100%);
+    -webkit-border-image: -webkit-linear-gradient(top, #9a6aff 0%, #6eff90 100%);
+    border-image-source: linear-gradient(to left, #9a6aff 1%, #6eff90 100%);
+    border-image-slice: 1;
+    border-width: 1px;
+    border-style:solid;
+    border-radius: 0;
+    color: map_get($use-color, white-c);
+    text-align: center;
+  }
+  @else if $btn == submit{
+    border: none;
+    background-color: map_get($use-color, hover-c);
+    border-radius: 0;
+    text-align: center;
+    padding:0.5rem 1.5rem;
+    color: map_get($use-color, white-c);
+    cursor: pointer;
+  }
+}
+
+
+///// padding top and bottom mixin
+@mixin padding-vertical($p_num){
+  padding-top: $p_num;
+  padding-bottom: $p_num;
+}
+
+
+///// margin top and bottom mixin
+@mixin margin-vertical($m_num){
+  margin-top: $m_num;
+  margin-bottom: $m_num;
+}
+
+
+///// all padding mixin ($p_num1, $p_num2  => number)
+@mixin all-padding($p_num1, $p_num2){
+  padding: $p_num1 $p_num2;
+}
+
+
+//// all margin mixin ($m_num1,$m_num2  => number)
+@mixin all-margin($m_num1, $m_num2){
+  margin: $m_num1, $m_num2;
+}
+
+
+///// button reset mixin
+@mixin btn-reset(){
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
+
+///// 2 color gradient (color => not string / hex)
+@mixin two-color-gradient($color1, $color2){
+  background: $color1; /* Old browsers */
+  background: -moz-linear-gradient(top, $color1 0%, $color2 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, $color1 0%, $color2 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, $color1 0%, $color2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+//// 3 color gradient (color => not string / hex)
+@mixin three-color-gradient($color1, $color2, $color3){
+  background: $color1; /* Old browsers */
+  background: -moz-linear-gradient(45deg, $color1 0%, $color2 50%, $color3 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg, $color1 0%,$color2 50%,$color3 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg, $color1 0%,$color2 50%,$color3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+//// bg image ($url => string)
+@mixin background-image($url){
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image:url($url);
+}
+
+
+//// modal background bg
+@mixin before_bg(){
+  display: block;
+  content:'';
+  position:fixed;
+  top:0;
+  right:0;
+  left:0;
+  bottom:0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 9998;
+}
+
+
+////========================= various
+//====================================//
+
+// font family
+$font-family: 'Open Sans', 'Nanum Square', 'NanumSquareweb', sans-serif;
+
+// box-shadow
+$box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+$box-shadow2: 2px 1px 4px rgba(0, 0, 0, 0.2);
+$box-shadow3: 0 3px 10px rgba(0, 0, 0, 0.3);

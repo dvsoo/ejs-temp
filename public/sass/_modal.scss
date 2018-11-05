@@ -1,0 +1,62 @@
+//============================== Common MODAL
+.common_modal{
+  display: none;
+  &:before{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index: 9997;
+    background-color: map_get($use-color, black-bg);
+    display: block;
+    content: '';
+  }
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index: 9999;
+  .modal_contents{
+    box-shadow: 0 0 10px rgba(63, 63, 4, 0.2);
+    position: relative;
+    z-index: 9998;
+    padding:4rem 2rem;
+    background-color: map_get($use-color, login-bg);
+    width: 500px;
+    margin: 8rem auto 0;
+    @include respond-to(small2-screens){
+      width: 95%;
+    }
+    .m_title{
+      &:before{
+        display: block;
+        content:'';
+        background-image:url('../images/error_icon.png');
+        width: 62px;
+        height: 62px;
+        margin:0 auto 1.5rem;
+      }
+      &.confirm{
+        &:before{
+          background-image:url('../images/confirm_icon.png');
+        }
+      }
+    }
+    .ok_btn{
+      @include form-style();
+      display: block;
+      padding-left:0;
+      width:80%;
+      margin:45px auto 0;
+      border: 1px solid map_get($use-color, yellow-c);
+      font-size: map_get($use-font, xsmall3-f);
+      cursor: pointer;
+      color:map_get($use-color, yellow-c);
+    }
+  }
+  &.on{
+    display: block;
+  }
+}

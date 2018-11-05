@@ -1,0 +1,124 @@
+/////footer start
+.footer{
+  margin-top:-1px;
+  @include padding-vertical(5rem);
+  color: #bbb;
+  .mc_inner_box{
+    border-top: 1px solid #fff;
+    padding-top:2rem;
+    img{
+      @include respond-to(xsmall-screens){
+        height: 45px;
+      }
+    }
+  }
+
+  .footer_box,
+  .footer_contents,
+  .snsBox{
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .footer_box{
+    img{
+      height: 70px;
+    }
+  }
+
+  .footer_contents{
+    font-size: map_get($use-font,xs1-f);
+    padding-top:1rem;
+  }
+
+  .snsBox{
+    @include respond-to(large-screens){
+      margin-top:3rem;
+      text-align: center;
+      display: block;
+      position: relative;
+    }
+    .sns{
+      @include respond-to(large-screens){
+        padding-left:0;
+        position:absolute;
+        right:0;
+      }
+      @include respond-to(xsmall2-screens){
+        position: static;
+        margin-top:2rem;
+      }
+    }
+  }
+
+  .footer_contents{
+    padding-left:3rem;
+    padding-right: 3rem;
+    @include respond-to(medium-screens){
+      font-size: map_get($use-font, xs1-f);
+    }
+    @include respond-to(small-screens){
+      display: block;
+      margin-top:2rem;
+      padding-left:0;
+      padding-right: 0;
+    }
+    @include respond-to(xsmall2-screens){
+      font-size: map_get($use-font, xs1-f);
+    }
+
+    a:hover,
+    a:focus{
+      color:map_get($use-color, p1-c);
+    }
+
+  }
+}
+
+.snsBox{
+  .sns{
+    li{
+      float:left;
+      a:link,
+      a:visited{
+        height: 50px;
+        margin-left:0.4rem;
+        margin-right:0.4rem;
+        @include respond-to(xsmall2-screens){
+          margin-left:0.3rem;
+          margin-right:0.3rem;
+          background-size:80%;
+        }
+      }
+      .kakaotalk_icon{
+        @include background-image('../images/snsIcon/kakaotalk.png');
+        width: 50px;
+        display: inline-block;
+      }
+
+      .telegram_icon{
+        @include background-image('../images/snsIcon/telegram.png');
+        width: 50px;
+        display: inline-block;
+      }
+
+      .facebook_icon{
+        @include background-image('../images/snsIcon/facebook.png');
+        width: 50px;
+        display: inline-block;
+      }
+
+      .instagram_icon{
+        @include background-image('../images/snsIcon/instagram.png');
+        width: 50px;
+        display: inline-block;
+      }
+
+      .github_icon{
+        @include background-image('../images/snsIcon/github.png');
+        width: 50px;
+        display: inline-block;
+      }
+    }
+  }
+}

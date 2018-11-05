@@ -1,0 +1,28 @@
+///mixin response
+$break-2xsmall: 400px;
+$break-xsmall: 480px;
+$break-small2: 575px;
+$break-small: 767px;
+$break-middle: 991px;
+$break-large: 1199px;
+
+@mixin respond-to($media){
+  @if $media == large-screens{
+    @media all and (max-width:$break-large ){ @content; }
+  }
+  @else if $media == medium-screens{
+    @media all and (max-width:$break-middle){ @content; }
+  }
+  @else if $media == small-screens{
+    @media all and (max-width:$break-small){ @content; }
+  }
+  @else if $media == small2-screens{
+    @media all and (max-width: $break-small2){ @content; }
+  }
+  @else if $media == xsmall-screens{
+    @media all and (max-width:$break-xsmall){ @content; }
+  }
+  @else if $media == xsmall2-screens{
+    @media all and (max-width:$break-2xsmall){ @content; }
+  }
+}
